@@ -17,10 +17,10 @@
             Write Everyday!
         </div>
         <div class="toolbar_right">
-            <div class="search">
+            <form action="/search" method="get">
                 <input class="search-box" name="keyword" id="keyword" autocomplete="off" type="text" value="" placeholder="search for articles" onfocus="this.placeholder=''" onblur="this.placeholder='search for articles'">
                 <button id="search" class="search" type="button" >search</button>
-            </div>
+            </form>
         </div>
     </div>
     <div class="content">
@@ -48,6 +48,15 @@
             <div class="third_cont">
 
             </div>
+            <div class="dot_container">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+            </div>
+            <div class="label_wrapper">
+                <div class="label"><span id="variableText">Winter View</span></div>
+            </div>
+
         </div>
         <div class="right_container">
             <div id="head">
@@ -146,33 +155,105 @@
         <div class="title_container">
             <div class="icon">
             </div>
-            <div class="title"></div>
+            <div class="title">Trending News</div>
         </div>
+        <div class="twopic">
+            <div class="pic" onclick="location.href='https://www.boston.com/weather/weather/2023/09/13/hurricane-lee-new-england-see-arrival-time-impacts/?p1=hp_primary';">
+                <div class="cover">See Hurricane Lee's track and New England arrival</div>
+            </div>
+            <div class="pic" onclick="location.href='https://www.boston.com/sports/new-england-patriots/2023/09/13/tom-brady-jets-rumors-zach-wilson/';">
+                <div class="cover">Report: The Jets will not pursue Tom Brady at quarterback</div>
+            </div>
+        </div>
+
+        <div class="twopic">
+            <div class="pic" onclick="location.href='https://www.boston.com/community/local-news/resources-for-leominster-residents-affected-by-flooding/';">
+                <div class="cover">Resources for Leominster residents affected by flooding</div>
+            </div>
+            <div class="pic" onclick="location.href='https://www.boston.com/news/crime/2023/09/13/lynn-shooting-suspect-wanted-assault-to-murder-commercial-neptune-street/';">
+                <div class="cover">Suspect wanted for assault to murder still at large after Lynn shooting</div>
+            </div>
+        </div>
+
     </div>
 </div>
+<div class="menu">
+        <ul id="list2">
+            <li>Refresh</li>
+        </ul>
+    </div>
 <script>
     document.querySelector(".left_containter").addEventListener('animationiteration',function () {
         if (event.target==this){
             let a = document.querySelector(".left_containter");
             let currentBg = getComputedStyle(a).backgroundImage;
+            const dots=document.querySelectorAll(".dot_container .dot");
             console.log(currentBg);
             if (currentBg.includes("p1.jpg")){
+                dots.forEach((dot,index)=>{
+                    if (index==1){
+                        dot.style.background='black'
+                    }
+                    else{
+                        dot.style.background='lightgrey'
+                    }
+                })
+                document.getElementById('variableText').innerText = 'Spring View'
                 a.style.backgroundImage='url("/img/p2.jpg")';
                 a.style.setProperty('--beforeback', "url('/img/p3.jpg')");
                 a.style.setProperty('--beforeback2', "url('/img/p1.jpg')");
             }
             else if (currentBg.includes("p2.jpg")){
+                dots.forEach((dot,index)=>{
+                    if (index==2){
+                        dot.style.background='black'
+                    }
+                    else{
+                        dot.style.background='lightgrey'
+                    }
+                })
+                document.getElementById('variableText').innerText = 'Autumn View'
                 a.style.backgroundImage='url("/img/p3.jpg")';
                 a.style.setProperty('--beforeback', "url('/img/p1.jpg')");
                 a.style.setProperty('--beforeback2', "url('/img/p2.jpg')");
             }
             else if (currentBg.includes("p3.jpg")){
+                dots.forEach((dot,index)=>{
+                    if (index==0){
+                        dot.style.background='black'
+                    }
+                    else{
+                        dot.style.background='lightgrey'
+                    }
+                })
+                document.getElementById('variableText').innerText = 'Winter View'
                 a.style.backgroundImage='url("/img/p1.jpg")';
                 a.style.setProperty('--beforeback', "url('/img/p2.jpg')");
                 a.style.setProperty('--beforeback2', "url('/img/p3.jpg')");
             }
         }
     })
+    document.addEventListener('contextmenu',function(event){
+            event.preventDefault();
+            let menudiv=document.querySelector('.menu')
+            let mouseX = event.clientX;
+            let mouseY = event.clientY;
+            menudiv.style.left=mouseX+'px'
+            menudiv.style.top=mouseY+'px'
+            menudiv.style.display='flex'
+        })
+    document.addEventListener('click',function(event){
+        let menudiv=document.querySelector('.menu')
+        if (menudiv.style.display!='none'){
+            menudiv.style.display='none'
+        }
+    })
+    document.getElementById('list2').addEventListener('click',function (){
+        location.reload();
+    })
 </script>
+<footer>
+    <p>Posted by: Liangshun Dong &nbsp &nbsp Copyright © 2023</p>
+</footer>
 </body>
 </html>
