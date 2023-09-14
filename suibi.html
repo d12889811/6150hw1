@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+    Articles
+    </title>
+    <script src="https://kit.fontawesome.com/d808e8fc52.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/suibi.css">
+    <link rel="icon" href="img/book.png" type="image/png">
+</head>
+<body>
+<header>
+    <div class="toolbar">
+        <div class="toobar_left">
+            Write Everyday!
+        </div>
+        <div class="toolbar_right">
+            <div class="search">
+                <input class="search-box" name="keyword" id="keyword" autocomplete="off" type="text" value="" placeholder="search for articles" onfocus="this.placeholder=''" onblur="this.placeholder='search for articles'">
+                <button id="search" class="search" type="button" >search</button>
+            </div>
+        </div>
+    </div>
+    <div class="content">
+        <h1 id="header_cont">
+            Articles
+        </h1>
+    </div>
+</header>
+<div class="main_cont_container">
+    <div class="nav_container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="left_right_c">
+        <div class="left_containter">
+            <div class="sec_cont">
+
+            </div>
+            <div class="third_cont">
+
+            </div>
+        </div>
+        <div class="right_container">
+            <div id="head">
+                <div id="icon">
+
+                </div>
+                <div id="title">
+                    Newest Articles
+                </div>
+            </div>
+            <div class="items">
+                <div class="left">
+                    Record Life
+                </div>
+                <div class="right">
+                    A Good Day
+                </div>
+            </div>
+            <div class="items">
+                <div class="left">
+                    Record Life
+                </div>
+                <div class="right">
+                    A Bad Day
+                </div>
+            </div>
+            <div class="items">
+                <div class="left">
+                    Academic Work
+                </div>
+                <div class="right">
+                    Math in Life
+                </div>
+            </div>
+            <div class="items">
+                <div class="left">
+                    Academic Work
+                </div>
+                <div class="right">
+                    Physics Around Us
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="sec_main_container">
+    <div class="left">
+        <div class="title">
+            <div class="icon">
+
+            </div>
+            <div class="content">
+                Short Articles
+            </div>
+            <div class="nav">
+                <ul >
+                    <li>Poetry</li>
+                    <li>Prose</li>
+                    <li>Ancient Poem</li>
+                </ul>
+            </div>
+        </div>
+        <div class="video_and_ar">
+            <div class="video">
+                <iframe src="//player.bilibili.com/player.html?aid=643778825&bvid=BV1qY4y1j7HY&cid=782989948&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+            </div>
+            <div class="articles">
+                <div class="title">
+                    Newest!
+                </div>
+                <div class="cont">
+                    <div class="ico"></div>
+                    <div class="word"> abc</div>
+                </div>
+                <div class="cont">
+                    <div class="ico"></div>
+                    <div class="word"> abcdef</div>
+                </div>
+                <div class="cont">
+                    <div class="ico"></div>
+                    <div class="word"> zmdjws</div>
+                </div>
+                <div class="cont">
+                    <div class="ico"></div>
+                    <div class="word"> apoeoeo</div>
+                </div>
+                <div class="cont">
+                    <div class="ico"></div>
+                    <div class="word"> efefefe</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="title_container">
+            <div class="icon">
+            </div>
+            <div class="title"></div>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelector(".left_containter").addEventListener('animationiteration',function () {
+        if (event.target==this){
+            let a = document.querySelector(".left_containter");
+            let currentBg = getComputedStyle(a).backgroundImage;
+            console.log(currentBg);
+            if (currentBg.includes("p1.jpg")){
+                a.style.backgroundImage='url("/img/p2.jpg")';
+                a.style.setProperty('--beforeback', "url('/img/p3.jpg')");
+                a.style.setProperty('--beforeback2', "url('/img/p1.jpg')");
+            }
+            else if (currentBg.includes("p2.jpg")){
+                a.style.backgroundImage='url("/img/p3.jpg")';
+                a.style.setProperty('--beforeback', "url('/img/p1.jpg')");
+                a.style.setProperty('--beforeback2', "url('/img/p2.jpg')");
+            }
+            else if (currentBg.includes("p3.jpg")){
+                a.style.backgroundImage='url("/img/p1.jpg")';
+                a.style.setProperty('--beforeback', "url('/img/p2.jpg')");
+                a.style.setProperty('--beforeback2', "url('/img/p3.jpg')");
+            }
+        }
+    })
+</script>
+</body>
+</html>
